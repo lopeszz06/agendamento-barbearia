@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Agendamento - Barbearia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #1c1c1c;
+      padding: 25px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      background: #00c853;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00a844;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>💈 Agendar Corte</h2>
+
+  <input type="text" id="nome" placeholder="Seu nome">
+
+  <input type="date" id="data">
+
+  <select id="hora">
+    <option value="">Escolha o horário</option>
+    <option>09:00</option>
+    <option>10:00</option>
+    <option>11:00</option>
+    <option>14:00</option>
+    <option>15:00</option>
+    <option>16:00</option>
+    <option>17:00</option>
+  </select>
+
+  <button onclick="agendar()">Agendar via WhatsApp</button>
+</div>
+
+<script>
+  function agendar() {
+    let nome = document.getElementById("nome").value;
+    let data = document.getElementById("data").value;
+    let hora = document.getElementById("hora").value;
+
+    if (!nome || !data || !hora) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    let telefone = "5511999999999"; // COLOQUE SEU NÚMERO
+
+    let mensagem = `Olá, meu nome é ${nome}. Quero agendar um corte no dia ${data} às ${hora}.`;
+
+    let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(url, "_blank");
+  }
+</script>
+
+</body>
+</html>
