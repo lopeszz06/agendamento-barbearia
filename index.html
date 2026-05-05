@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Agendamento - Barbearia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -21,12 +21,6 @@
       padding: 25px;
       border-radius: 10px;
       width: 300px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
     }
 
     input, select, button {
@@ -40,12 +34,7 @@
     button {
       background: #00c853;
       color: white;
-      font-weight: bold;
       cursor: pointer;
-    }
-
-    button:hover {
-      background: #00a844;
     }
   </style>
 </head>
@@ -56,7 +45,6 @@
   <h2>💈 Agendar Corte</h2>
 
   <input type="text" id="nome" placeholder="Seu nome">
-
   <input type="date" id="data">
 
   <select id="hora">
@@ -74,24 +62,24 @@
 </div>
 
 <script>
-  function agendar() {
-    let nome = document.getElementById("nome").value;
-    let data = document.getElementById("data").value;
-    let hora = document.getElementById("hora").value;
+function agendar() {
+  let nome = document.getElementById("nome").value;
+  let data = document.getElementById("data").value;
+  let hora = document.getElementById("hora").value;
 
-    if (!nome || !data || !hora) {
-      alert("Preencha todos os campos!");
-      return;
-    }
-
-    let telefone = "5511999999999"; // COLOQUE SEU NÚMERO
-
-    let mensagem = `Olá, meu nome é ${nome}. Quero agendar um corte no dia ${data} às ${hora}.`;
-
-    let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
-
-    window.open(url, "_blank");
+  if (!nome || !data || !hora) {
+    alert("Preencha tudo!");
+    return;
   }
+
+  let telefone = "5511999999999";
+
+  let mensagem = `Olá, meu nome é ${nome}. Quero agendar um corte no dia ${data} às ${hora}.`;
+
+  let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+
+  window.open(url, "_blank");
+}
 </script>
 
 </body>
